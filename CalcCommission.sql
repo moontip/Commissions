@@ -50,11 +50,6 @@ end
 )	and salesdate =  FORMAT(@salesmonth, 'yyyy-MM-01'))
 	
 
-PRINT @OFFICENAME
-
---set officetarget = 
---(select officetarget from office where OFFICENAME = @officename
---and salesdate =  FORMAT(@salesmonth, 'yyyy-MM-01'))
 
 -- Flow of control to determaine whether agents get a higher commission based on meeting or exceeding the office target.
 IF (SELECT sum(AgentSalesAmt)/max(officeTarget)  from #AgentSalesTemp) < 1.00
